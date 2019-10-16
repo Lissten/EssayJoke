@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.test.project.modulecommon">
+
+    <application>
+        <activity
+            android:name=".ModuleCommonActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|fontScale|navigation"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="behind"
+            android:showWhenLocked="true"
+            />
+    </application>
+
+</manifest>
