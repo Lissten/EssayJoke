@@ -2,6 +2,11 @@ apply plugin: 'com.android.application'
 ext.mainApp = true //标记为主app module
 apply from: rootProject.file('cc-settings-2.gradle')
 
+def gitSha = 'git rev-parse --short HEAD'.execute([], project.rootDir).text.trim()
+def gitTag = 'git describe --tags'.execute([], project.rootDir).text.trim()
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm:ss'Z'", TimeZone.getTimeZone("UTC"))
+def buildTime2 = new Date().format("yyyy-MM-dd'-'HH-mm-ss", TimeZone.getTimeZone("UTC"))
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {

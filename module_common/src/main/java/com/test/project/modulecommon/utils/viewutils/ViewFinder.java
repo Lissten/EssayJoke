@@ -1,4 +1,4 @@
-package com.test.project.modulecommon.annotation;
+package com.test.project.modulecommon.utils.viewutils;
 
 import android.app.Activity;
 import android.view.View;
@@ -11,10 +11,9 @@ import android.view.View;
  * Modification date：
  * Modify content：
  */
-public class ViewFinder {
+final class ViewFinder {
 
     private Activity mActivity;
-
     private View mView;
 
     public ViewFinder(Activity activity) {
@@ -36,6 +35,21 @@ public class ViewFinder {
             return mView.findViewById(viewId);
         }
         return null;
+    }
+
+    public View findViewById(int id, int pid) {
+        View pView = null;
+        if (pid > 0) {
+            pView = this.findViewById(pid);
+        }
+
+        View view = null;
+        if (pView != null) {
+            view = pView.findViewById(id);
+        } else {
+            view = this.findViewById(id);
+        }
+        return view;
     }
 }
 

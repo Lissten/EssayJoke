@@ -24,4 +24,5 @@ android {
 dependencies {
     api rootProject.ext.dependencies.'appcompat-v7'
     api rootProject.ext.dependencies.'constraint-layout'
+//    implementation 'org.xutils:xutils:3.8.2'
 }

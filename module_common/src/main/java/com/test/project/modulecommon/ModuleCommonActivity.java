@@ -1,7 +1,7 @@
 package com.test.project.modulecommon;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class ModuleCommonActivity extends AppCompatActivity {
 
