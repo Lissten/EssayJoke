@@ -1,30 +1,50 @@
 package com.test.project.essayjoke;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.test.project.modulecommon.annotation.CheckNet;
-import com.test.project.modulecommon.annotation.OnClick;
-import com.test.project.modulecommon.annotation.ViewInject;
-import com.test.project.modulecommon.utils.viewutils.x;
+import com.test.project.essayjoke.presenter.EssayJokeMainPresenter;
+import com.test.project.modulecommon.base.BaseActivity;
+import com.test.project.modulecommon.utils.log.LogUtils;
 
-public class MainActivity extends AppCompatActivity {
-    @ViewInject(R.id.test_tv)
+public class MainActivity extends BaseActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
     private TextView mTextView;
+    private EssayJokeMainPresenter mPresenter;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        x.view().inJect(this);
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LogUtils.d(TAG,"Lifecycle MainActivity onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        LogUtils.d(TAG,"Lifecycle MainActivity onPause");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        LogUtils.d(TAG,"Lifecycle MainActivity onDestroy");
+    }
+
+    @Override
+    protected void initView() {
+        mTextView= findViewById(R.id.test_tv);
         mTextView.setText("测试");
     }
 
-    @OnClick({R.id.test_tv})
-    @CheckNet("亲，请检查你的网络哟！")
-    public void onClick(View view){
-        Toast.makeText(this,"点击测试",Toast.LENGTH_SHORT).show();
+    @Override
+    protected void initData() {
+        mPresenter = new EssayJokeMainPresenter();
+        getLifecycle().addObserver(mPresenter);
     }
+
 }

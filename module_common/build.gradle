@@ -19,10 +19,16 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     api rootProject.ext.dependencies.'appcompat-v7'
     api rootProject.ext.dependencies.'constraint-layout'
-//    implementation 'org.xutils:xutils:3.8.2'
+    api rootProject.ext.dependencies.'rxjava'
+    api rootProject.ext.dependencies.'rxandroid'
+    api rootProject.ext.dependencies.'lifecycle'
 }

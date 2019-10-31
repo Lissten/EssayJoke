@@ -1,1 +1,14 @@
 一、IOC 反射加注解
+
+二、android studio插件开发
+简介：
+    plugin.xml
+
+    1、id插件的id
+    2、name插件的名称
+    3、version插件的版本
+    4、action执行的动作，执行的一个操作
+
+    action动作介绍：
+    1、在光标位置弹出一个窗口，显示HelloWorld几秒
+    2、Groups：代表显示的菜单地方；Anchor；代表显示的位置
